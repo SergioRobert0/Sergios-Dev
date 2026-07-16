@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfólio Pessoal — Sérgio Loyola
 
-## Getting Started
+Portfólio responsivo desenvolvido para apresentar minha trajetória, habilidades e projetos como desenvolvedor Full Stack. A aplicação reúne experiências em web e mobile, além de disponibilizar um currículo gerado diretamente pela interface.
 
-First, run the development server:
+**Acesse:** [sergioloyola.dev](https://sergioloyola.dev) · [LinkedIn](https://www.linkedin.com/in/s%C3%A9rgio-roberto-oliveira-loyola-420b86255/) · [GitHub](https://github.com/SergioRobert0)
+
+## Visão geral
+
+- Apresentação profissional, histórico e competências técnicas.
+- Galeria de projetos com tecnologias e detalhes visuais.
+- Currículo em PDF gerado no navegador.
+- Navegação por seções, indicador de leitura e animações sutis.
+- Layout adaptado para desktop e dispositivos móveis.
+- Metadados para compartilhamento, sitemap, `robots.txt` e manifesto PWA.
+
+## Projetos em destaque
+
+| Projeto | Descrição | Tecnologias principais |
+| --- | --- | --- |
+| **ProTech** | Ecossistema de ferramentas voltado à educação técnica e ao aprendizado contínuo. | Flutter, Firebase, REST APIs |
+| **LoveInLoop** | Aplicativo mobile autoral focado em interação e uma experiência de uso refinada. | Flutter, Hive, Firebase |
+| **Mestre Árbitro** | Ferramenta de apoio à arbitragem e à gestão de partidas. | React, TypeScript, Node.js, PostgreSQL |
+| **AjudaAqui** | Plataforma para solicitação, triagem e acompanhamento de demandas locais. | Next.js, Supabase, Tailwind CSS, Zod |
+
+## Tecnologias
+
+- **Frontend:** Next.js, React, TypeScript, Tailwind CSS e Framer Motion
+- **Mobile:** Flutter e Dart
+- **Backend e dados:** Node.js, Express, Firebase, Supabase, MySQL e PostgreSQL
+- **Qualidade e interface:** Zod, React Hook Form, Figma, ESLint e Git
+
+## Executando localmente
+
+### Pré-requisitos
+
+- Node.js 20 ou superior
+- npm 10 ou superior
+
+### Instalação
 
 ```bash
+git clone https://github.com/SergioRobert0/Portf-lio-Pessoal.git
+cd Portf-lio-Pessoal
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) no navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts disponíveis
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Comando | Finalidade |
+| --- | --- |
+| `npm run dev` | Inicia o ambiente de desenvolvimento. |
+| `npm run build` | Cria a versão otimizada para produção. |
+| `npm run start` | Executa a versão de produção após o build. |
+| `npm run lint` | Analisa o código com ESLint. |
 
-## Learn More
+## Estrutura do projeto
 
-To learn more about Next.js, take a look at the following resources:
+```text
+app/          # Rotas, layout, estilos globais e metadados
+components/   # Componentes reutilizáveis e seções do portfólio
+constants/    # Conteúdo e configurações exibidos no site
+hooks/        # Hooks personalizados
+public/assets/# Imagens e ilustrações dos projetos
+types/        # Tipagens TypeScript
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contato
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Estou aberto a oportunidades, colaborações e conversas sobre tecnologia. Entre em contato pelo [LinkedIn](https://www.linkedin.com/in/s%C3%A9rgio-roberto-oliveira-loyola-420b86255/) ou envie um e-mail para [sergiorbt12@gmail.com](mailto:sergiorbt12@gmail.com).
