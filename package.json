@@ -6,8 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "desktop": "npm run build && electron .",
+    "desktop:build": "npm run build && electron-builder --win portable"
   },
+  "main": "desktop/main.cjs",
   "dependencies": {
     "@base-ui/react": "^1.6.0",
     "@hookform/resolvers": "^5.4.0",
@@ -35,6 +38,29 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.10",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "electron": "^37.2.4",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "br.com.sergioloyola.portfolio",
+    "productName": "Portfolio Sergio Loyola",
+    "directories": {
+      "output": "dist-desktop"
+    },
+    "files": [
+      "desktop/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "out",
+        "to": "portfolio"
+      }
+    ],
+    "win": {
+      "target": "portable",
+      "icon": "app/favicon.ico",
+      "artifactName": "Portfolio-Sergio-Loyola.exe"
+    }
   }
 }

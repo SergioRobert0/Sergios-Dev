@@ -28,7 +28,7 @@ export const profile = {
   role: "Suporte, Helpdesk e Programador",
   location: "Teresina – PI",
   email: "sergiorbt12@gmail.com",
-  phone: "(86) 98101-4021",
+  phone: "(86) 99514-4549",
   github: "https://github.com/SergioRobert0",
   githubLabel: "github.com/SergioRobert0",
   linkedin:

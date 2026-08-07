@@ -1,6 +1,6 @@
 # Portfólio Pessoal — Sérgio Loyola
 
-Portfólio responsivo desenvolvido para apresentar minha trajetória, habilidades e projetos como desenvolvedor Full Stack. A aplicação reúne experiências em web e mobile, além de disponibilizar um currículo gerado diretamente pela interface.
+Portfólio multiplataforma desenvolvido para apresentar minha trajetória, habilidades e projetos como desenvolvedor Full Stack. O projeto possui versões para web, desktop e dispositivos móveis, além de disponibilizar um currículo em PDF diretamente pela interface.
 
 **Acesse:** [sergioloyola.dev](https://sergioloyola.dev) · [LinkedIn](https://www.linkedin.com/in/s%C3%A9rgio-roberto-oliveira-loyola-420b86255/) · [GitHub](https://github.com/SergioRobert0)
 
@@ -12,6 +12,8 @@ Portfólio responsivo desenvolvido para apresentar minha trajetória, habilidade
 - Navegação por seções, indicador de leitura e animações sutis.
 - Layout adaptado para desktop e dispositivos móveis.
 - Metadados para compartilhamento, sitemap, `robots.txt` e manifesto PWA.
+- Aplicativo desktop portátil criado com Electron.
+- Aplicativo mobile nativo desenvolvido com Flutter.
 
 ## Projetos em destaque
 
@@ -24,19 +26,22 @@ Portfólio responsivo desenvolvido para apresentar minha trajetória, habilidade
 
 ## Tecnologias
 
-- **Frontend:** Next.js, React, TypeScript, Tailwind CSS e Framer Motion
+- **Web:** Next.js, React, TypeScript, Tailwind CSS e Framer Motion
+- **Desktop:** Electron e electron-builder
 - **Mobile:** Flutter e Dart
 - **Backend e dados:** Node.js, Express, Firebase, Supabase, MySQL e PostgreSQL
 - **Qualidade e interface:** Zod, React Hook Form, Figma, ESLint e Git
 
 ## Executando localmente
 
-### Pré-requisitos
+### Web
+
+#### Pré-requisitos
 
 - Node.js 20 ou superior
 - npm 10 ou superior
 
-### Instalação
+#### Instalação
 
 ```bash
 git clone https://github.com/SergioRobert0/Portf-lio-Pessoal.git
@@ -47,6 +52,33 @@ npm run dev
 
 Abra [http://localhost:3000](http://localhost:3000) no navegador.
 
+### Desktop
+
+A versão desktop utiliza a exportação estática do Next.js dentro do Electron.
+
+```bash
+npm install
+npm run desktop
+```
+
+Para gerar o executável portátil do Windows:
+
+```bash
+npm run desktop:build
+```
+
+O instalador será criado em `dist-desktop/`.
+
+### Mobile
+
+Tenha o Flutter instalado e um dispositivo ou emulador configurado. Em seguida:
+
+```bash
+cd portfolio_mobile
+flutter pub get
+flutter run
+```
+
 ## Scripts disponíveis
 
 | Comando | Finalidade |
@@ -55,6 +87,8 @@ Abra [http://localhost:3000](http://localhost:3000) no navegador.
 | `npm run build` | Cria a versão otimizada para produção. |
 | `npm run start` | Executa a versão de produção após o build. |
 | `npm run lint` | Analisa o código com ESLint. |
+| `npm run desktop` | Compila e abre o portfólio no Electron. |
+| `npm run desktop:build` | Gera o executável portátil para Windows. |
 
 ## Estrutura do projeto
 
@@ -62,7 +96,9 @@ Abra [http://localhost:3000](http://localhost:3000) no navegador.
 app/          # Rotas, layout, estilos globais e metadados
 components/   # Componentes reutilizáveis e seções do portfólio
 constants/    # Conteúdo e configurações exibidos no site
+desktop/      # Processo principal da aplicação Electron
 hooks/        # Hooks personalizados
+portfolio_mobile/ # Aplicativo mobile desenvolvido em Flutter
 public/assets/# Imagens e ilustrações dos projetos
 types/        # Tipagens TypeScript
 ```
