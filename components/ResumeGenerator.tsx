@@ -1,9 +1,7 @@
 "use client";
 
-import { Download, QrCode } from "lucide-react";
-import Image from "next/image";
+import { Download } from "lucide-react";
 import { useRef, useState } from "react";
-import { QRCodeSVG } from "qrcode.react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -51,8 +49,9 @@ export function ResumeGenerator({ compact = false }: { compact?: boolean }) {
           html2canvas: {
             scale: 2,
             useCORS: true,
-            backgroundColor: "#F8F7F3",
+            backgroundColor: "#FFFFFF",
             windowWidth: 794,
+            windowHeight: 1122,
             onclone: (documentClone: Document) => {
               const resumeClone = documentClone.getElementById("pdf-resume");
               if (resumeClone) {
@@ -117,41 +116,31 @@ export function ResumeGenerator({ compact = false }: { compact?: boolean }) {
         <div
           ref={resumeRef}
           id="pdf-resume"
-          className="w-[794px] bg-[#F8F7F3] p-[28px] text-[#111111]"
-          style={{ fontFamily: "Arial, Helvetica, sans-serif", height: "1122px" }}
+          className="flex h-[1122px] w-[794px] flex-col bg-white px-[42px] py-[36px] text-[#172033]"
+          style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
         >
-          <div className="grid grid-cols-[112px_1fr] gap-8 border-b-2 border-[#111111] pb-6">
-            <div>
-              <div className="relative h-[124px] w-[100px] overflow-hidden border-2 border-[#E4571B] bg-white">
-                <Image
-                  src={profile.image}
-                  alt=""
-                  fill
-                  sizes="100px"
-                  unoptimized
-                  className="object-cover"
-                />
-              </div>
-            </div>
-            <div>
-              <p className="text-[10px] font-bold uppercase tracking-[4px] text-[#E4571B]">
-                Portfólio • Currículo
-              </p>
-              <h1 className="mt-2 text-[36px] font-black uppercase leading-[0.95]">
-                Sérgio Roberto Loyola
-              </h1>
-              <p className="mt-2 text-[15px] font-bold uppercase">
-                {profile.role}
-              </p>
-              <p className="mt-2 text-[9.5px] leading-4 text-[#555]">
-                {profile.email} • {profile.phone} • {profile.location}
-                <br />
-                LinkedIn: {profile.linkedinLabel} • GitHub: {profile.githubLabel}
-              </p>
-            </div>
-          </div>
+          <header className="border-t-[5px] border-[#2563EB] pt-5">
+            <p className="text-[9px] font-bold uppercase tracking-[3.2px] text-[#2563EB]">
+              Currículo profissional
+            </p>
+            <h1 className="mt-2 text-[31px] font-black uppercase leading-none tracking-[-0.6px] text-[#132238]">
+              Sérgio Roberto Loyola
+            </h1>
+            <p className="mt-2 text-[13px] font-bold uppercase tracking-[0.7px] text-[#3F4D63]">
+              {profile.role}
+            </p>
 
-          <div className="mt-7 grid grid-cols-[1fr_224px] gap-8">
+            <div className="mt-4 grid grid-cols-2 gap-x-8 gap-y-1.5 border-y border-[#D9E1EC] py-3 text-[9px] leading-[1.35] text-[#4B5870]">
+              <p><strong className="text-[#172033]">Contato:</strong> {profile.phone}</p>
+              <p><strong className="text-[#172033]">E-mail:</strong> {profile.email}</p>
+              <p><strong className="text-[#172033]">Localização:</strong> {profile.location}</p>
+              <p><strong className="text-[#172033]">Portfólio:</strong> {siteUrl.replace(/^https?:\/\//, "")}</p>
+              <p><strong className="text-[#172033]">LinkedIn:</strong> {profile.linkedinLabel}</p>
+              <p><strong className="text-[#172033]">GitHub:</strong> {profile.githubLabel}</p>
+            </div>
+          </header>
+
+          <div className="mt-6 grid grid-cols-[1fr_220px] gap-8">
             <main>
               <ResumeBlock title="Resumo profissional" compact>
                 <p>{profile.summary}</p>
@@ -160,13 +149,13 @@ export function ResumeGenerator({ compact = false }: { compact?: boolean }) {
               <ResumeBlock title="Experiência profissional" compact>
                 {experienceItems.map((item) => (
                   <div key={item.title} className="pdf-section mb-4 break-inside-avoid">
-                    <h3 className="text-[13px] font-black uppercase">
+                    <h3 className="text-[11.5px] font-black uppercase text-[#172033]">
                       {item.title}
                     </h3>
-                    <p className="text-[10px] font-bold text-[#E4571B]">
+                    <p className="mt-0.5 text-[9px] font-bold text-[#2563EB]">
                       {item.company} • {item.date}
                     </p>
-                    <p className="mt-1 text-[9.5px] leading-4 text-[#444]">
+                    <p className="mt-1 text-[9.2px] leading-[1.5] text-[#4B5870]">
                       {item.description}
                     </p>
                   </div>
@@ -179,10 +168,10 @@ export function ResumeGenerator({ compact = false }: { compact?: boolean }) {
                 <div className="grid gap-3">
                   {skillCategories.map((category) => (
                     <div key={category.title}>
-                      <p className="text-[10px] font-black uppercase text-[#E4571B]">
+                      <p className="text-[9px] font-black uppercase text-[#2563EB]">
                         {category.title}
                       </p>
-                      <p className="mt-1 text-[9.5px] leading-4 text-[#444]">
+                      <p className="mt-1 text-[9px] leading-[1.45] text-[#4B5870]">
                         {category.skills.map((skill) => skill.name).join(" • ")}
                       </p>
                     </div>
@@ -223,7 +212,7 @@ export function ResumeGenerator({ compact = false }: { compact?: boolean }) {
                   {techStack.slice(0, 8).map((tech) => (
                     <span
                       key={tech}
-                      className="border border-[#DDDDDD] px-2 py-1 text-[8px] font-bold uppercase"
+                      className="rounded-sm border border-[#D9E1EC] bg-[#F6F8FB] px-2 py-1 text-[7.8px] font-bold uppercase text-[#34425A]"
                     >
                       {tech}
                     </span>
@@ -231,20 +220,12 @@ export function ResumeGenerator({ compact = false }: { compact?: boolean }) {
                 </div>
               </ResumeBlock>
 
-              <div className="mt-4 flex items-center gap-4 border-t border-[#DDDDDD] pt-4">
-                <QRCodeSVG value={siteUrl} size={54} fgColor="#111111" bgColor="#F8F7F3" />
-                <div>
-                  <QrCode className="mb-2 h-4 w-4 text-[#E4571B]" />
-                  <p className="text-[9px] font-bold uppercase leading-4">
-                    Acesse o portfólio online
-                  </p>
-                </div>
-              </div>
             </aside>
           </div>
 
-          <footer className="mt-4 border-t border-[#111111] pt-3 text-[8px] font-bold uppercase tracking-[1.5px] text-[#6F6F6F]">
-            Currículo gerado automaticamente pelo portfólio de Sérgio Roberto Loyola
+          <footer className="mt-auto flex items-center justify-between border-t border-[#D9E1EC] pt-3 text-[7.5px] font-bold uppercase tracking-[1.2px] text-[#718096]">
+            <span>Sérgio Roberto Loyola</span>
+            <span>{profile.email} • {profile.phone}</span>
           </footer>
         </div>
       </div>
@@ -262,8 +243,8 @@ function ResumeBlock({
   compact?: boolean;
 }) {
   return (
-    <section className={`pdf-section break-inside-avoid text-[9.8px] leading-4 text-[#444] ${compact ? "mb-5" : "mb-8"}`}>
-      <h2 className="mb-3 border-b border-[#DDDDDD] pb-2 text-[10px] font-black uppercase tracking-[2.2px] text-[#111111]">
+    <section className={`pdf-section break-inside-avoid text-[9.2px] leading-[1.5] text-[#4B5870] ${compact ? "mb-[18px]" : "mb-8"}`}>
+      <h2 className="mb-3 border-b-2 border-[#D9E1EC] pb-1.5 text-[9.5px] font-black uppercase tracking-[1.8px] text-[#172033]">
         {title}
       </h2>
       {children}

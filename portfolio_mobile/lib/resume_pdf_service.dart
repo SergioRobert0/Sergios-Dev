@@ -1,4 +1,5 @@
-import 'package:flutter/services.dart';
+import 'dart:ui' show Rect;
+
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
@@ -7,8 +8,6 @@ class ResumePdfService {
   const ResumePdfService._();
 
   static Future<bool> createAndShare({Rect? sharePosition}) async {
-    final profileBytes = await rootBundle.load('assets/profile-sergio.jpeg');
-    final profileImage = pw.MemoryImage(profileBytes.buffer.asUint8List());
     final document = pw.Document(
       title: 'Currículo - Sérgio Roberto Loyola',
       author: 'Sérgio Roberto de Oliveira Loyola',
@@ -114,51 +113,55 @@ class ResumePdfService {
         ),
         build: (context) => [
           pw.Container(
-            padding: const pw.EdgeInsets.all(18),
-            decoration: pw.BoxDecoration(
-              color: light,
-              borderRadius: pw.BorderRadius.circular(8),
+            width: double.infinity,
+            padding: const pw.EdgeInsets.only(top: 14, bottom: 13),
+            decoration: const pw.BoxDecoration(
+              border: pw.Border(
+                top: pw.BorderSide(color: accent, width: 4),
+                bottom: pw.BorderSide(color: PdfColor.fromInt(0xFFD7E0E8)),
+              ),
             ),
-            child: pw.Row(
-              crossAxisAlignment: pw.CrossAxisAlignment.center,
+            child: pw.Column(
+              crossAxisAlignment: pw.CrossAxisAlignment.start,
               children: [
-                pw.ClipOval(
-                  child: pw.Image(
-                    profileImage,
-                    width: 72,
-                    height: 72,
-                    fit: pw.BoxFit.cover,
+                pw.Text(
+                  'CURRÍCULO PROFISSIONAL',
+                  style: pw.TextStyle(
+                    color: accent,
+                    fontSize: 8,
+                    fontWeight: pw.FontWeight.bold,
+                    letterSpacing: 1.8,
                   ),
                 ),
-                pw.SizedBox(width: 17),
-                pw.Expanded(
-                  child: pw.Column(
-                    crossAxisAlignment: pw.CrossAxisAlignment.start,
-                    children: [
-                      pw.Text(
-                        'SÉRGIO ROBERTO LOYOLA',
-                        style: pw.TextStyle(
-                          color: dark,
-                          fontSize: 21,
-                          fontWeight: pw.FontWeight.bold,
-                        ),
-                      ),
-                      pw.SizedBox(height: 3),
-                      pw.Text(
-                        'Suporte, Helpdesk e Programador',
-                        style: const pw.TextStyle(color: accent, fontSize: 11),
-                      ),
-                      pw.SizedBox(height: 7),
-                      pw.Text(
-                        'Teresina - PI  |  (86) 99514-4549',
-                        style: const pw.TextStyle(color: muted, fontSize: 9),
-                      ),
-                      pw.Text(
-                        'sergiorbt12@gmail.com  |  github.com/SergioRobert0',
-                        style: const pw.TextStyle(color: muted, fontSize: 9),
-                      ),
-                    ],
+                pw.SizedBox(height: 5),
+                pw.Text(
+                  'SÉRGIO ROBERTO LOYOLA',
+                  style: pw.TextStyle(
+                    color: dark,
+                    fontSize: 23,
+                    fontWeight: pw.FontWeight.bold,
                   ),
+                ),
+                pw.SizedBox(height: 3),
+                pw.Text(
+                  'Suporte, Helpdesk e Programador',
+                  style: const pw.TextStyle(color: accent, fontSize: 11),
+                ),
+                pw.SizedBox(height: 9),
+                pw.Row(
+                  children: [
+                    pw.Expanded(
+                      child: pw.Text(
+                        'Teresina - PI  |  (86) 99514-4549  |  sergiorbt12@gmail.com',
+                        style: const pw.TextStyle(color: muted, fontSize: 8.5),
+                      ),
+                    ),
+                  ],
+                ),
+                pw.SizedBox(height: 3),
+                pw.Text(
+                  'github.com/SergioRobert0  |  sergioloyola.dev',
+                  style: const pw.TextStyle(color: muted, fontSize: 8.5),
                 ),
               ],
             ),
