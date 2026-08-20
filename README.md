@@ -1,4 +1,4 @@
-# Portfólio Pessoal — Sérgio Loyola
+# Sergios-Dev — Portfólio de Sérgio Loyola
 
 Portfólio multiplataforma desenvolvido para apresentar minha trajetória, habilidades e projetos como desenvolvedor Full Stack. O projeto possui versões para web, desktop e dispositivos móveis, além de disponibilizar um currículo em PDF diretamente pela interface.
 
@@ -44,8 +44,8 @@ Portfólio multiplataforma desenvolvido para apresentar minha trajetória, habil
 #### Instalação
 
 ```bash
-git clone https://github.com/SergioRobert0/Portf-lio-Pessoal.git
-cd Portf-lio-Pessoal
+git clone https://github.com/SergioRobert0/Sergios-Dev.git
+cd Sergios-Dev
 npm install
 npm run dev
 ```

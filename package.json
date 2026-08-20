@@ -1,5 +1,5 @@
 {
-  "name": "portifolioprofissional",
+  "name": "sergios-dev",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -44,7 +44,7 @@
   },
   "build": {
     "appId": "br.com.sergioloyola.portfolio",
-    "productName": "Portfolio Sergio Loyola",
+    "productName": "Sergios-Dev",
     "directories": {
       "output": "dist-desktop"
     },
